@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-"""
-BMW Emblem Animation & Telemetry Dashboard
-
-An interactive dashboard recreation of the BMW emblem built in pure Python.
-Zero third-party package dependencies.
-"""
-
 import argparse
 from src.config import AppConfig
 from src.app import BMWLogoApp
