@@ -1,8 +1,6 @@
-# Animated BMW Logo & Instrument Cluster
+# Animated BMW Logo
 
-An interactive BMW emblem and instrument cluster animation built with Python's standard library (`turtle` and `tkinter`). It features a continuous rotating center roundel, throttle rev response with smooth deceleration, live telemetry, and an optional ///M-Sport mode.
-
----
+An interactive BMW logo animation built with Python's standard library (`turtle` and `tkinter`). It features a continuous rotating center roundel, throttle rev response with smooth deceleration, live telemetry, and an optional ///M-Sport mode.
 
 ## Technical Highlights
 
@@ -16,13 +14,13 @@ An interactive BMW emblem and instrument cluster animation built with Python's s
 
 | Key / Input | Action | Details |
 | :--- | :--- | :--- |
-| **Mouse Click / Enter** | Rev Throttle | Surges RPM to 6,800 redline with smooth decay |
-| **Spacebar** | Pause / Resume | Freezes or unfreezes rotation |
-| **Up Arrow** | Speed Up | Increases cruising RPM (+30) |
-| **Down Arrow** | Slow Down | Decreases cruising RPM (-30) |
+| **Mouse Click / Enter** | Rev Throttle | PUSHES RPM to 6,800 redline with smooth decay |
+| **Spacebar** | Pause / Resume | FOR rotation |
+| **Up Arrow** | Speed Up | Increases RPM |
+| **Down Arrow** | Slow Down | DecreaseS RPM |
 | **M** | M-Sport Mode | Toggles tri-color racing stripes and high-RPM profile |
-| **R** | Reverse Spin | Flips rotation between clockwise and counter-clockwise |
-| **Esc / Q** | Quit | Closes the application window cleanly |
+| **R** | Reverse Spin | Flips rotation between clockwise and Anti-clockwise |
+| **Esc / Q** | Quit | Closes the application window |
 
 ---
 
@@ -33,28 +31,6 @@ Run directly with Python 3:
 ```bash
 python3 main.py
 ```
-
-### Command-Line Arguments
-
-You can customize the vehicle plate banner, cruise speed, or start options directly:
-
-```bash
-# Custom registration plate and cruise speed
-python3 main.py --plate "KL 13 AY 4411" --cruise-rpm 180
-
-# Launch directly in M-Sport mode, skipping intro sequence
-python3 main.py --sport --skip-intro
-```
-
-| Flag | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `--plate` | `str` | `KL 13 AY 4411` | Custom vehicle plate text on top header |
-| `--cruise-rpm` | `float` | `120.0` | Default cruising rotation speed |
-| `--sport` | `flag` | `False` | Launch directly in M-Sport performance mode |
-| `--skip-intro` | `flag` | `False` | Skip opening border drawing animation |
-
----
-
 ## Requirements
 
 - Python 3.8+
