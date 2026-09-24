@@ -59,3 +59,12 @@ python3 main.py --sport --skip-intro
 
 - Python 3.8+
 - Standard library only (`turtle`, `tkinter`, `math`, `argparse`, `dataclasses`). No third-party packages required.
+
+---
+
+## License & Disclaimer
+
+This project is licensed under the [MIT License](LICENSE).
+
+> **Disclaimer**: BMW and the BMW roundel logo are registered trademarks of Bayerische Motoren Werke AG. This is an independent educational programming demonstration and is not affiliated with, endorsed by, or sponsored by BMW AG.
+
