@@ -28,7 +28,6 @@ def draw_circle(t, x, y, radius, fill=None, border=None, border_width=1):
 def draw_dial_background(t, plate_number="KL 13 AY 4411"):
     t.clear()
 
-    # Gauge dial ticks around circumference
     for deg in range(0, 360, 10):
         rad = math.radians(deg)
         major = deg % 30 == 0
@@ -50,7 +49,6 @@ def draw_dial_background(t, plate_number="KL 13 AY 4411"):
 
     draw_circle(t, 0, 0, 248, border="#141821", border_width=1)
 
-    # Top header text
     t.goto(0, 312)
     t.pencolor("#93a1b5")
     t.write("B A Y E R I S C H E   M O T O R E N   W E R K E", align="center", font=("Segoe UI", 11, "bold"))
@@ -64,7 +62,6 @@ def draw_dial_background(t, plate_number="KL 13 AY 4411"):
 def draw_bezel(t, is_sport_mode=False):
     t.clear()
 
-    # Optional M-Sport tri-color accent arcs
     if is_sport_mode:
         stripes = [
             (cfg.M_LIGHT_BLUE, 218, -60, 60),
@@ -86,12 +83,10 @@ def draw_bezel(t, is_sport_mode=False):
                     t.goto(x, y)
             t.penup()
 
-    # Chrome bevel ring layers
     draw_circle(t, 0, 0, cfg.R_OUTER_BEZEL, fill=cfg.BEZEL_DARK, border="#3c4656", border_width=2)
     draw_circle(t, 0, 0, cfg.R_OUTER_RIM, fill=cfg.BEZEL_LIGHT)
     draw_circle(t, 0, 0, cfg.R_INNER_BEZEL, fill=cfg.RING_BLACK, border=cfg.BEZEL_DARK, border_width=2)
 
-    # Inner chrome border
     draw_circle(t, 0, 0, cfg.R_RING_INNER + 3, fill=cfg.BEZEL_MID)
     draw_circle(t, 0, 0, cfg.R_ROUNDEL + 2, fill=cfg.BEZEL_LIGHT)
 
@@ -105,7 +100,6 @@ def render_curved_typography(screen):
     canvas = screen.getcanvas()
     canvas.delete("bmw_lettering")
 
-    # Character, angle along circular band, tilt angle
     letters = [
         ("B", 135, 45),
         ("M", 90, 0),
@@ -117,7 +111,6 @@ def render_curved_typography(screen):
         cx = cfg.R_TEXT * math.cos(rad)
         cy = -cfg.R_TEXT * math.sin(rad)
 
-        # Drop shadow for depth
         canvas.create_text(
             cx + 2,
             cy + 2,
@@ -127,7 +120,7 @@ def render_curved_typography(screen):
             angle=tilt,
             tags="bmw_lettering",
         )
-        # Main text face
+        
         canvas.create_text(
             cx,
             cy,
@@ -144,10 +137,8 @@ def render_curved_typography(screen):
 def draw_roundel(t, angle):
     t.clear()
 
-    # 1. Base white disc
     draw_circle(t, 0, 0, cfg.R_ROUNDEL, fill=cfg.BMW_WHITE)
 
-    # 2. Quadrants: Blue at angle and angle + 180
     for offset in (0, 180):
         t.penup()
         t.goto(0, 0)
@@ -164,7 +155,6 @@ def draw_roundel(t, angle):
         t.end_fill()
         t.penup()
 
-    # 3. Spoke lines
     t.pencolor(cfg.DIVIDER_COLOR)
     t.pensize(2.5)
     for spoke in [angle, angle + 90, angle + 180, angle + 270]:
@@ -174,7 +164,6 @@ def draw_roundel(t, angle):
         t.goto(cfg.R_ROUNDEL * math.cos(rad), cfg.R_ROUNDEL * math.sin(rad))
         t.penup()
 
-    # 4. Outer rim outline
     t.goto(0, -cfg.R_ROUNDEL)
     t.setheading(0)
     t.pencolor(cfg.BEZEL_LIGHT)
@@ -183,7 +172,6 @@ def draw_roundel(t, angle):
     t.circle(cfg.R_ROUNDEL)
     t.penup()
 
-    # 5. Sheen arc
     t.pencolor("#ffffff")
     t.pensize(2.2)
     r_sheen = cfg.R_ROUNDEL - 5
@@ -198,7 +186,6 @@ def draw_roundel(t, angle):
             t.goto(x, y)
     t.penup()
 
-    # 6. Center hub button
     draw_circle(t, 0, 0, 5, fill=cfg.BEZEL_MID, border=cfg.BEZEL_DARK, border_width=1)
     draw_circle(t, 0, 0, 2.5, fill="#ffffff")
 
@@ -210,7 +197,6 @@ def draw_hud(t, current_rpm, cruise_rpm, is_sport, is_paused, direction):
     bar_w = 340
     bar_h = 10
 
-    # Track background
     t.penup()
     t.goto(-bar_w / 2, bar_y)
     t.fillcolor("#131720")
@@ -226,7 +212,6 @@ def draw_hud(t, current_rpm, cruise_rpm, is_sport, is_paused, direction):
     t.end_fill()
     t.penup()
 
-    # RPM bar fill
     fill_ratio = min(max(current_rpm / cfg.MAX_RPM, 0.02), 1.0)
     active_w = bar_w * fill_ratio
 
