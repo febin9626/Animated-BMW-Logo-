@@ -15,7 +15,7 @@ class BMWLogoApp:
         self.cruise_rpm = config.cruise_rpm
         self.current_rpm = config.cruise_rpm
         self.angle = 0.0
-        self.direction = -1  # -1 = Clockwise, 1 = Counter-Clockwise
+        self.direction = -1
         self.is_sport = config.start_in_sport
         self.is_paused = False
         self.is_running = True
@@ -31,8 +31,7 @@ class BMWLogoApp:
         self.screen.title("BMW Dashboard - Animated Logo & Telemetry")
         self.screen.bgcolor(cfg.BG_COLOR)
         self.screen.tracer(0)
-
-        # Multi-layer turtles prevent full-screen redraw flicker
+        
         self.bg_turtle = self._create_layer_turtle()
         self.bezel_turtle = self._create_layer_turtle()
         self.roundel_turtle = self._create_layer_turtle()
@@ -165,7 +164,6 @@ class BMWLogoApp:
         if not self.is_running:
             return
 
-        # Smooth rev decay back to cruise speed
         if self.current_rpm > self.cruise_rpm:
             self.current_rpm = self.cruise_rpm + (self.current_rpm - self.cruise_rpm) * 0.94
             if self.current_rpm - self.cruise_rpm < 2.0:
