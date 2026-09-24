@@ -1,27 +1,24 @@
 # Animated BMW Logo
 
-An interactive BMW logo animation built with Python's standard library (`turtle` and `tkinter`). It features a continuous rotating center roundel, throttle rev response with smooth deceleration, live telemetry, and an optional ///M-Sport mode.
+This project is an interactive BMW Logo animation made using Python's Standard libraries, mainly Turtle and Tkinter. The logo has a continuously rotating centre, smooth engine rev control, live information on the screen, and an optional M-Sport Mode.
 
 ## Technical Highlights
 
-- **Decoupled Layer Architecture**: Python's `turtle` library normally flickers when clearing and redrawing complex scenes. To keep rendering at 60 FPS without stutter, the scene is divided across distinct turtle layers (background dial, static chrome bezel, spinning roundel, and telemetry HUD). Only the rotating roundel and HUD redraw every frame.
-- **Curved Typography via Tkinter Canvas**: Standard `turtle.write()` does not support text rotation angles. To position the `B`, `M`, and `W` letters radially along the curved upper bezel, the code accesses Tkinter's underlying canvas directly (`screen.getcanvas().create_text()`), mapping Turtle's center-origin coordinate system to Tkinter's screen coordinates.
-- **Rev Physics & Decay**: Clicking or pressing Enter spikes engine RPM to 6,800. Revs decay exponentially back to base cruising speed over subsequent frames.
+- **SEPEREATE LAYERS**: The Turtle library can sometimes flicker when a lot of things are redrawn. To avoid this and keep the animation smooth, the project is divided into different layers such as the background, BMW logo, rotating centre and information display. Only the parts that need changes are updated continuously.
+- **Curved Text**: The normal turtle.write() function cannot rotate text at different angles. So, Tkinter Canvas is used to place the B, M and W letters around the upper part of the logo. This makes the text follow the curved shape of the logo
+- **Rev Control aand Deceleration**: When the user clicks or presses Enter, the engine RPM increases up to 6,800 RPM. After that, the RPM slowly comes back to the normal cruising speed, giving a smooth rev effect.
 
 ---
 
 ## Controls
 
-| Key / Input | Action | Details |
-| :--- | :--- | :--- |
-| **Mouse Click / Enter** | Rev Throttle | PUSHES RPM to 6,800 redline with smooth decay |
-| **Spacebar** | Pause / Resume | FOR rotation |
-| **Up Arrow** | Speed Up | Increases RPM |
-| **Down Arrow** | Slow Down | DecreaseS RPM |
-| **M** | M-Sport Mode | Toggles tri-color racing stripes and high-RPM profile |
-| **R** | Reverse Spin | Flips rotation between clockwise and Anti-clockwise |
-| **Esc / Q** | Quit | Closes the application window |
-
+**Mouse Click / Enter** : Rev Throttle
+**Spacebar** : Pause / Resume (for rotation)
+**Up Arrow** : Speed Up 
+**Down Arrow** : Slow Down
+**M** : M-Sport Mode ; Toggles tri-color racing stripes and high-RPM profile
+**R** : Reverse Spin ; Flips rotation between clockwise and Anti-clockwise
+**Esc / Q** : Quit ; Closes the application window
 ---
 
 ## Usage & CLI Options
