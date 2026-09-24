@@ -1,1 +1,1 @@
-"""BMW Logo Animation - Core Package."""
+"""BMW LOGO ANIMATION"""
