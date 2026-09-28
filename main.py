@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-"""
-BMW Emblem Animation & Telemetry Dashboard
-
-An interactive dashboard recreation of the BMW emblem built in pure Python.
-Zero third-party package dependencies.
-"""
-
 import argparse
 from src.config import AppConfig
 from src.app import BMWLogoApp
@@ -19,13 +11,13 @@ def parse_args():
         "--plate",
         type=str,
         default="KL 13 AY 4411",
-        help="Vehicle registration plate displayed on header (default: KL 13 AY 4411)",
+        help="Vehicle registration plate displayed on header",
     )
     parser.add_argument(
         "--cruise-rpm",
         type=float,
         default=120.0,
-        help="Base cruise speed in RPM (default: 120.0)",
+        help="Base cruise speed in RPM",
     )
     parser.add_argument(
         "--sport",
