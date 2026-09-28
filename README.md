@@ -31,6 +31,8 @@ This project is an interactive BMW Logo animation made using Python's standard l
 Run directly with Python 3:
 
 ```bash
+python3 src/main.py
+# or
 python3 main.py
 ```
 
