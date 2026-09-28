@@ -32,18 +32,16 @@ Run directly with Python 3:
 
 ```bash
 python3 src/main.py
-# or
-python3 main.py
 ```
 
 ### Options
 
 ```bash
 # Custom registration plate and cruise speed
-python3 main.py --plate "KL 13 AY 4411" --cruise-rpm 180
+python3 src/main.py --plate "KL 13 AY 4411" --cruise-rpm 180
 
 # Launch directly in M-Sport mode without intro animation
-python3 main.py --sport --skip-intro
+python3 src/main.py --sport --skip-intro
 ```
 
 | Flag | Default | Description |
@@ -62,8 +60,6 @@ python3 main.py --sport --skip-intro
 
 ---
 
-## License & Disclaimer
-
-This project is licensed under the [MIT License](LICENSE).
+## Disclaimer
 
 > **Disclaimer**: BMW and the BMW roundel logo are registered trademarks of Bayerische Motoren Werke AG. This is an independent educational programming demonstration and is not affiliated with, endorsed by, or sponsored by BMW AG.
